@@ -1,6 +1,6 @@
 # wittlerfilho.github.io
 
-#Why is it?
+# Why is it?
 This is my portfolio, where i put things that a portfolio should have.
 
 
