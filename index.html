@@ -74,21 +74,25 @@
 
         <section id="projects-section">
             <div class="projects-section-card">
-                <a href="https://codepen.io/wittlerfilho/pen/LYdxyQm" target="_blank" class="image-in-a projects-section-image-unfocus"></a>
+                <a href="https://codepen.io/wittlerfilho/pen/LYdxyQm" target="_blank"
+                    class="image-in-a projects-section-image-unfocus"></a>
                 <h1 class="projects-section-header">Documentação técnica</h1>
                 <p class="projects-section-text">Feito como projeto para a certificação da freeCodeCamp</p>
 
             </div>
 
             <div class="projects-section-card">
-                <a href="https://codepen.io/wittlerfilho/pen/BarpRJX" target="_blank" class="image-in-a projects-section-image-focus"></a>
+                <a href="https://codepen.io/wittlerfilho/pen/BarpRJX" target="_blank"
+                    class="image-in-a projects-section-image-focus"></a>
                 <h1 class="projects-section-header">Formulário</h1>
-                <p class="projects-section-text">Feito no intúito de receber feedbacks de usuários de uma plataforma de ensino</p>
+                <p class="projects-section-text">Feito no intúito de receber feedbacks de usuários de uma plataforma de
+                    ensino</p>
 
             </div>
 
             <div class="projects-section-card">
-                <a href="https://codepen.io/wittlerfilho/pen/gOegWXE" target="_blank" class="image-in-a projects-section-image-unfocus" id="projects-section-image-3"></a>
+                <a href="https://codepen.io/wittlerfilho/pen/gOegWXE" target="_blank"
+                    class="image-in-a projects-section-image-unfocus" id="projects-section-image-3"></a>
                 <h1 class="projects-section-header">Página de produto</h1>
                 <p class="projects-section-text">Página para a divulgação de um produto retrô</p>
             </div>
@@ -134,6 +138,19 @@
         var parallaxInstance = new Parallax(scene);
     </script>
     <script src="index.js" type="module"></script>
+
+
+    <script type="module">
+        import { annotate, annotationGroup } from 'rough-notation';
+
+        const e = document.querySelector('.main-span');
+        const annotation = annotate(e, { type: 'highlight', strokeWidth: 10, color: '#DADADA', animationDuration: 1500 });
+        annotation.show();
+
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+    </script>
 </body>
 
 </html>
