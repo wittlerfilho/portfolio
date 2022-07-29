@@ -1,0 +1,405 @@
+:root {
+    --font-headers: 'Space Mono', monospace;
+    --font-texts: 'Bitter', serif;
+
+    --dark-background: #121212;
+    --white-background: #FFFFFF;
+    --grey: #535353;
+    --grey-light: #DADADA;
+    --font-color: #121212;
+
+    color: var(--font-color);
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1,
+a {
+    font-family: var(--font-headers);
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+
+p {
+    font-family: var(--font-texts);
+    font-size: 1rem;
+}
+
+
+#header {
+    margin: 3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+#header-name {
+    font-size: 1.5rem;
+}
+
+.header-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 1rem;
+    /* border-bottom: 2px solid var(--dark-background); */
+}
+
+.header-list-lis {
+    margin: 0 1rem 0 1rem;
+}
+
+.header-list-a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--font-color);
+    padding-bottom: 0.5rem;
+}
+
+.link {
+    position: relative;
+}
+
+.link:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: black;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.link:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+#main {
+    box-sizing: border-box;
+
+}
+
+#main-section {
+    height: 90vh;
+    background-image: url(../elements/wave-haikei.svg);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    padding-top: 5rem;
+}
+
+#main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-header {
+    font-size: 3.5rem;
+    margin-bottom: 4rem;
+}
+
+#main-text {
+    font-size: 1.6rem;
+    color: #535353;
+    display: inline;
+}
+
+#main-button-group {
+    display: flex;
+    margin-top: 5rem;
+    align-items: center;
+}
+
+.button {
+    display: inline-block;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    padding: 1rem;
+    cursor: pointer;
+    text-transform: lowercase;
+    font-weight: 700;
+    font-family: var(--font-headers);
+    transition: all 0.5s;
+}
+
+.button:nth-child(1) {
+    margin-right: 1rem;
+}
+
+.button:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+}
+
+.button:hover .links {
+    color: white;
+}
+
+.links {
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+
+#about-me-section {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    background-color: var(--dark-background);
+    color: white;
+    font-family: var(--font-headers);
+    padding: 3rem;
+}
+
+.about-me-divs {
+    display: flex !important;
+    flex-direction: row;
+}
+
+.about-me-divs:last-child {
+    position: static !important;
+}
+
+.about-me-divs:nth-last-child(1) {
+    flex-direction: row-reverse;
+}
+
+.about-me-image {
+    width: 400px;
+}
+
+.about-me-texts {
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+}
+
+.about-me-header {
+    font-size: 3rem;
+}
+
+.about-me-text {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--grey-light);
+}
+
+#projects-section {
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-image: url(../elements/wave-haikei\ \(1\).svg), url(../elements/wave.svg);
+    background-position: top, bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    box-sizing: border-box;
+}
+
+.projects-section-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+}
+
+.image-in-a {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.projects-section-image-unfocus {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    background-image: url(../elements/technicalDocumentationPicture.png);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}
+
+#projects-section-image-3 {
+    background-image: url(../elements/gameBoy.png);
+}
+
+.projects-section-image-unfocus:hover {
+    width: 350px;
+    height: 350px;
+}
+
+.projects-section-image-focus {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    background-image: url(../elements/surveyFormPicture.png);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 2s;
+}
+
+.projects-section-image-focus:hover {
+    width: 450px;
+    height: 450px;
+}
+
+.projects-section-header {
+    margin-top: 1rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+.projects-section-text {
+    font-size: 1.5rem;
+    width: 300px;
+    text-align: center;
+    color: var(--grey);
+}
+
+#contact-section {
+    height: 36vh;
+    background-color: var(--dark-background);
+    color: white;
+}
+
+#contact-text-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#contact-h1 {
+    font-size: 3rem;
+}
+
+#contact-p {
+    font-size: 1.6rem;
+    color: #DADADA;
+    margin-top: 2rem;
+}
+
+#contact-links-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4rem;
+}
+
+#contact-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 1000px;
+}
+
+.contact-a {
+    text-decoration: none;
+    color: white;
+}
+
+.contact-a:after {
+    background: white;
+}
+
+
+@media screen and (max-width: 767px) {
+
+    html {
+        width: fit-content;
+    }
+    #header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0rem 2rem 0rem;
+    }
+
+    #header-name {
+        margin-bottom: 1rem;
+    }
+
+
+    #main-header {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #about-me-section {
+        flex-direction: column;
+        height: auto;
+    }
+    
+
+    .about-me-divs {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me-divs:nth-last-child(1) {
+        flex-direction: column;
+    }
+
+    .about-me-image {
+        width: 300px;
+    }
+
+    .about-me-text {
+        text-align: center;
+    }
+
+    #projects-section {
+        height: 260vh;
+        flex-direction: column;
+    }
+
+    .projects-section-image-focus {
+        width: 300px;
+        height: 300px;
+    }
+
+    .projects-section-image-focus:hover {
+        width: 350px;
+        height: 350px;
+    }
+
+    #contact-section {
+        height: auto;
+    }
+
+    #contact-h1 {
+        font-size: 2rem;
+    }
+
+    #contact-p {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    #contact-list {
+        flex-direction: column;
+    }
+    
+}

@@ -1,0 +1,389 @@
+:root {
+  --font-headers: "Space Mono", monospace;
+  --font-texts: "Bitter", serif;
+  --dark-background: #121212;
+  --white-background: #fff;
+  --grey: #535353;
+  --grey-light: #dadada;
+  --font-color: #121212;
+  color: var(--font-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, a {
+  font-family: var(--font-headers);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+p {
+  font-family: var(--font-texts);
+  font-size: 1rem;
+}
+
+#header {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 3rem;
+  display: flex;
+}
+
+#header-name {
+  font-size: 1.5rem;
+}
+
+.header-list {
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 1rem;
+  display: flex;
+}
+
+.header-list-lis {
+  margin: 0 1rem;
+}
+
+.header-list-a {
+  color: var(--font-color);
+  padding-bottom: .5rem;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.link {
+  position: relative;
+}
+
+.link:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  background: #000;
+  transition: width .3s, left .3s;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+
+.link:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+#main {
+  box-sizing: border-box;
+}
+
+#main-section {
+  height: 90vh;
+  background-image: url("wave-haikei.58659d99.svg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5rem;
+  display: flex;
+}
+
+#main-div {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#main-header {
+  margin-bottom: 4rem;
+  font-size: 3.5rem;
+}
+
+#main-text {
+  color: #535353;
+  font-size: 1.6rem;
+  display: inline;
+}
+
+#main-button-group {
+  align-items: center;
+  margin-top: 5rem;
+  display: flex;
+}
+
+.button {
+  color: #000;
+  cursor: pointer;
+  text-transform: lowercase;
+  font-weight: 700;
+  font-family: var(--font-headers);
+  background-color: #fff;
+  border: 2px solid #000;
+  padding: 1rem;
+  transition: all .5s;
+  display: inline-block;
+}
+
+.button:nth-child(1) {
+  margin-right: 1rem;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: #000;
+  border: 2px solid #000;
+}
+
+.button:hover .links {
+  color: #fff;
+}
+
+.links {
+  color: #000;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+#about-me-section {
+  height: 90vh;
+  background-color: var(--dark-background);
+  color: #fff;
+  font-family: var(--font-headers);
+  flex-direction: column;
+  padding: 3rem;
+  display: flex;
+}
+
+.about-me-divs {
+  flex-direction: row;
+  display: flex !important;
+}
+
+.about-me-divs:last-child {
+  position: static !important;
+}
+
+.about-me-divs:nth-last-child(1) {
+  flex-direction: row-reverse;
+}
+
+.about-me-image {
+  width: 400px;
+}
+
+.about-me-texts {
+  flex-direction: column;
+  padding: 5rem;
+  display: flex;
+}
+
+.about-me-header {
+  font-size: 3rem;
+}
+
+.about-me-text {
+  color: var(--grey-light);
+  margin-top: .5rem;
+  font-size: 1.5rem;
+}
+
+#projects-section {
+  height: 100vh;
+  box-sizing: border-box;
+  background-image: url("wave-haikei (1).7a1869eb.svg"), url("wave.d129bbdf.svg");
+  background-position: top, bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+}
+
+.projects-section-card {
+  width: 400px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.image-in-a {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.projects-section-image-unfocus {
+  width: 300px;
+  height: 300px;
+  background-image: url("technicalDocumentationPicture.9f4afc0e.png");
+  border-radius: 20px;
+  transition: all 2s cubic-bezier(.075, .82, .165, 1);
+}
+
+#projects-section-image-3 {
+  background-image: url("gameBoy.98beefc5.png");
+}
+
+.projects-section-image-unfocus:hover {
+  width: 350px;
+  height: 350px;
+}
+
+.projects-section-image-focus {
+  width: 400px;
+  height: 400px;
+  background-image: url("surveyFormPicture.fff5e6ca.png");
+  border-radius: 20px;
+  transition: all 2s cubic-bezier(.075, .82, .165, 1);
+}
+
+.projects-section-image-focus:hover {
+  width: 450px;
+  height: 450px;
+}
+
+.projects-section-header {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.projects-section-text {
+  width: 300px;
+  text-align: center;
+  color: var(--grey);
+  font-size: 1.5rem;
+}
+
+#contact-section {
+  height: 36vh;
+  background-color: var(--dark-background);
+  color: #fff;
+}
+
+#contact-text-div {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+#contact-h1 {
+  font-size: 3rem;
+}
+
+#contact-p {
+  color: #dadada;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+}
+
+#contact-links-div {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  display: flex;
+}
+
+#contact-list {
+  width: 1000px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.contact-a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.contact-a:after {
+  background: #fff;
+}
+
+@media screen and (max-width: 767px) {
+  html {
+    width: fit-content;
+  }
+
+  #header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  #header-name {
+    margin-bottom: 1rem;
+  }
+
+  #main-header {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  #about-me-section {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .about-me-divs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-me-divs:nth-last-child(1) {
+    flex-direction: column;
+  }
+
+  .about-me-image {
+    width: 300px;
+  }
+
+  .about-me-text {
+    text-align: center;
+  }
+
+  #projects-section {
+    height: 260vh;
+    flex-direction: column;
+  }
+
+  .projects-section-image-focus {
+    width: 300px;
+    height: 300px;
+  }
+
+  .projects-section-image-focus:hover {
+    width: 350px;
+    height: 350px;
+  }
+
+  #contact-section {
+    height: auto;
+  }
+
+  #contact-h1 {
+    font-size: 2rem;
+  }
+
+  #contact-p {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  #contact-list {
+    flex-direction: column;
+  }
+}
+
+/*# sourceMappingURL=index.0e1dac40.css.map */
