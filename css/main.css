@@ -422,7 +422,7 @@ p {
     .contact-list-lis {
         margin-bottom: 1rem;
     }
-    
+
 }
 
 
@@ -504,7 +504,7 @@ p {
         height: 350px;
     }
 
-    #contact-list  {
+    #contact-list {
         justify-content: space-around;
     }
 }
