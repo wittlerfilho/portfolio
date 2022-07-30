@@ -311,10 +311,6 @@ p {
 }
 
 @media screen and (max-width: 767px) {
-  html {
-    width: fit-content;
-  }
-
   #header {
     flex-direction: column;
     justify-content: center;
@@ -327,13 +323,19 @@ p {
   }
 
   #main-header {
+    text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
+  }
+
+  #main-text {
+    font-size: 1.5rem;
   }
 
   #about-me-section {
     height: auto;
     flex-direction: column;
+    overflow: hidden;
   }
 
   .about-me-divs {
@@ -356,6 +358,73 @@ p {
   #projects-section {
     height: 260vh;
     flex-direction: column;
+    overflow: hidden;
+  }
+
+  .projects-section-image-focus {
+    width: 300px;
+    height: 300px;
+  }
+
+  .projects-section-image-focus:hover {
+    width: 350px;
+    height: 350px;
+  }
+
+  .projects-section-header {
+    font-size: 1.8rem;
+  }
+
+  .projects-section-text {
+    font-size: 1.3rem;
+  }
+
+  #contact-section {
+    height: 50vh;
+    overflow: hidden;
+  }
+
+  #contact-h1 {
+    font-size: 2rem;
+  }
+
+  #contact-p {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
+
+  #contact-links-div {
+    margin-top: 3rem;
+  }
+
+  #contact-list {
+    flex-direction: column;
+  }
+
+  .contact-list-lis {
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #main-header {
+    text-align: center;
+  }
+
+  #about-me-section {
+    height: auto;
+    overflow: hidden;
+  }
+
+  .about-me-image {
+    width: 300px;
+  }
+
+  #projects-section {
+    height: 260vh;
+    flex-direction: column;
+    overflow: hidden;
   }
 
   .projects-section-image-focus {
@@ -370,19 +439,50 @@ p {
 
   #contact-section {
     height: auto;
+    overflow: hidden;
   }
 
-  #contact-h1 {
-    font-size: 2rem;
-  }
-
-  #contact-p {
-    text-align: center;
-    font-size: 1.5rem;
+  #contact-links-div {
+    margin-top: 3rem;
   }
 
   #contact-list {
     flex-direction: column;
+  }
+
+  .contact-list-lis {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  #main-header {
+    text-align: center;
+    font-size: 5rem;
+  }
+
+  #about-me-section {
+    height: auto;
+  }
+
+  #projects-section {
+    height: 260vh;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .projects-section-image-focus {
+    width: 300px;
+    height: 300px;
+  }
+
+  .projects-section-image-focus:hover {
+    width: 350px;
+    height: 350px;
+  }
+
+  #contact-list {
+    justify-content: space-around;
   }
 }
 
