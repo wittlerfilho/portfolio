@@ -23,7 +23,8 @@ a{color:inherit}
 #loader .num b{font-weight:400}
 #loader .num sup{font:400 11px var(--mono);letter-spacing:.14em;margin:.6em 0 0 1.2em;font-style:normal;text-transform:uppercase}
 #lnp{display:block;height:1px;background:var(--bg);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .1s linear;margin-top:18px}
-#loader .row{display:flex;justify-content:space-between}
+#loader .row{display:flex;justify-content:space-between;gap:16px;white-space:nowrap}
+@media(max-width:380px){#loader{padding:24px 22px}#loader .row{letter-spacing:.1em}}
 nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:calc(16px + env(safe-area-inset-top,0px)) 28px 16px;mix-blend-mode:difference;color:#fff}
 nav{transition:transform .45s cubic-bezier(.2,.7,.2,1);will-change:transform}
 nav.hide{transform:translateY(-101%)}

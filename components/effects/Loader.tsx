@@ -50,7 +50,7 @@ export function Loader() {
       <div>
         <div className="row mono">
           <span>[ wittler ]</span>
-          <span>[ Independent web design / 2026 ]</span>
+          <span>[ Built with intent ]</span>
         </div>
         <i id="lnp" style={{ "--p": n / 100 } as CSSProperties} />
       </div>
