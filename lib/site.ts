@@ -2,7 +2,7 @@
 
 const WA_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "55DDDNUMERO";
 const WA_MSG =
-  "Olá, Wittler! Vi seu portfólio e quero iniciar um projeto. Podemos conversar?";
+  "Olá, Wittler! \nVi seu portfólio e quero iniciar um projeto. Podemos conversar?";
 
 export const site = {
   name: "Wittler",
