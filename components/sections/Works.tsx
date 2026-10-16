@@ -149,9 +149,6 @@ export function Works() {
             />
           ))}
         </div>
-        <Reveal className="mono" style={{ marginTop: 18, opacity: 0.6 }}>
-          Toque ou passe o cursor para ver a prévia.
-        </Reveal>
       </section>
 
       {/* fora da <section>: a seção recebe transform no scroll e quebraria o position:fixed */}
