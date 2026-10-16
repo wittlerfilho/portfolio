@@ -25,25 +25,25 @@ export const projects = [
   {
     title: "MAISON ÉLAN",
     tag: "Fashion",
-    text: "Marca de moda. Editorial, tipografia serifada e galeria em scroll lento.",
+    text: "Editorial de moda. Tipografia serifada e galeria em rolagem lenta.",
     art: { label: "Maison Élan", lines: ["nouvelle", "saison"], className: "a0" },
   },
   {
     title: "ATELIER NORTE",
     tag: "Studio",
-    text: "Estúdio criativo. Contraste preto e vermelho, grade livre.",
+    text: "Estúdio criativo. Contraste em preto e azul, grade livre.",
     art: { label: "Atelier Norte", lines: ["feito", "com", "ruído"], className: "a1" },
   },
   {
     title: "OBJETO / 01",
     tag: "Product",
-    text: "Produto premium. Lançamento com molduras e revelação por máscara.",
+    text: "Lançamento de produto. Molduras e revelação por máscara.",
     art: { label: "Objeto / 01", lines: ["peso", "exato"], className: "a2", circle: true },
   },
   {
     title: "SIGNAL LABS",
     tag: "Tech",
-    text: "Negócio tecnológico. Interface densa, azul profundo e movimento técnico.",
+    text: "Marca de tecnologia. Azul profundo e movimento de precisão.",
     art: { label: "Signal Labs", lines: ["sinal,", "sem", "ruído"], className: "a3" },
   },
 ] as const;

@@ -150,7 +150,7 @@ export function Works() {
           ))}
         </div>
         <Reveal className="mono" style={{ marginTop: 18, opacity: 0.6 }}>
-          Projetos fictícios, apenas demonstração visual. Toque ou passe o cursor.
+          Toque ou passe o cursor para ver a prévia.
         </Reveal>
       </section>
 
