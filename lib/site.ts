@@ -52,22 +52,22 @@ export const services = [
   {
     num: "01",
     title: "Design autoral",
-    text: "Direção de arte, tipografia e composição pensadas para a identidade do cliente, sem templates.",
+    text: "Direção de arte, tipografia e composição desenhadas para a sua marca. Sem templates.",
   },
   {
     num: "02",
     title: "Responsividade",
-    text: "Do celular ao desktop com touch, teclado e movimento reduzido respeitados.",
+    text: "Do celular ao desktop, com atenção a toque, teclado e movimento reduzido.",
   },
   {
     num: "03",
     title: "Performance",
-    text: "Animações leves, páginas rápidas e scroll nativo preservado.",
+    text: "Animação com propósito, páginas rápidas e rolagem nativa preservada.",
   },
   {
     num: "04",
     title: "Sob medida",
-    text: "Funcionalidades específicas de front e back quando o projeto pede.",
+    text: "Funcionalidades de front-end e back-end quando o projeto pede.",
   },
 ] as const;
 

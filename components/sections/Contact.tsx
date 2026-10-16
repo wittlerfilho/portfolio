@@ -11,9 +11,9 @@ export function Contact() {
         <div className="fcta">
           <Reveal className="mono">[ Disponível para novos projetos ]</Reveal>
           <Reveal as="h2" className="rough" delay={1}>
-            Tem uma ideia?
+            Tem um projeto?
             <br />
-            Vamos construir a página.
+            Vamos começar.
           </Reveal>
           <Reveal
             as="a"
@@ -24,7 +24,7 @@ export function Contact() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            [ Chamar no WhatsApp ↗ ]
+            [ Iniciar pelo WhatsApp ↗ ]
           </Reveal>
         </div>
         <figure className="ang" id="ang">

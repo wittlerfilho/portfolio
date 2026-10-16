@@ -28,10 +28,9 @@ export function Hero() {
       </h1>
       <div className={`hfoot rv d1${on}`}>
         <div className="hcopy">
-          <span className="mono hl">[ Full stack developer ]</span>
+          <span className="mono hl">[ Web design e código ]</span>
           <p className="lede">
-            Landing pages feitas à mão: tipografia, movimento e código sob medida para marcas que
-            não querem parecer com mais ninguém.
+            Sites e landing pages com identidade própria, desenhados e programados com cuidado.
           </p>
         </div>
         <a className="cta" href="#works">
