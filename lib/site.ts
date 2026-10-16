@@ -5,8 +5,8 @@ const WA_MSG =
   "Olá, Wittler! \nVi seu portfólio e quero iniciar um projeto. Podemos conversar?";
 
 export const site = {
-  name: "Wittler",
-  title: "Wittler",
+  name: "wittler",
+  title: "wittler",
   description:
     "Sites e landing pages com identidade própria: design, tipografia e movimento desenvolvidos sob medida.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
