@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { usePage } from "@/components/effects/PageProvider";
+import { site } from "@/lib/site";
+
 
 /** Hero: título gigante com glitch/boil, gravura pendurada e chamada "Ver projetos". */
 export function Hero() {
@@ -30,7 +32,7 @@ export function Hero() {
         <div className="hcopy">
           <span className="mono hl">[ Web design e código ]</span>
           <p className="lede">
-            Sites e landing pages com identidade própria, desenhados e programados com cuidado.
+            {site.description}
           </p>
         </div>
         <a className="cta" href="#works">
