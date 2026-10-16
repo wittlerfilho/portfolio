@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   authors: [{ name: site.name }],
-  keywords: ["landing page", "web design", "desenvolvedor full stack", "front-end", "wittler"],
+  keywords: ["web design", "landing page", "desenvolvimento web", "sites sob medida", "Wittler"],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

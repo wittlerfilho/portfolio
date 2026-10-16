@@ -5,10 +5,10 @@ const WA_MSG =
   "Olá, wittler! Vi o portfólio e quero iniciar um projeto de landing page.";
 
 export const site = {
-  name: "wittler",
-  title: "wittler — landing pages autorais",
+  name: "Wittler",
+  title: "Wittler",
   description:
-    "Landing pages feitas à mão: tipografia, movimento e código sob medida para marcas que não querem parecer com mais ninguém.",
+    "Sites e landing pages com identidade própria: design, tipografia e movimento desenvolvidos sob medida.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   githubUrl:
     process.env.NEXT_PUBLIC_GITHUB_URL ?? "https://github.com/SEU-USUARIO",
