@@ -72,8 +72,11 @@ section{position:relative}
 .hr{height:1px;background:var(--ink);transform-origin:left;transform:scaleX(0);transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
 .hr.in{transform:scaleX(1)}
 .marq{overflow:hidden;border-bottom:1px solid var(--ink);padding:16px 0;white-space:nowrap}
-.marq div{display:inline-block;animation:mq 38s linear infinite}
-.marq span{font-family:var(--mono);font-size:13px;letter-spacing:.2em;margin-right:36px}
+/* #mq = dois conjuntos idênticos; -50% = exatamente um conjunto. A animação é só fallback sem JS: com JS, o Marquee.tsx marca data-js e assume o transform (animação CSS vence estilo inline). */
+#mq{display:flex;width:max-content;will-change:transform;animation:mq 38s linear infinite}
+#mq[data-js]{animation:none}
+.mq-set{display:flex;flex:none}
+.marq span{flex:none;font-family:var(--mono);font-size:13px;letter-spacing:.2em;margin-right:36px}
 @keyframes mq{to{transform:translateX(-50%)}}
 .rv{opacity:0;transform:translateY(22px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
