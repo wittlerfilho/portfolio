@@ -1,7 +1,7 @@
 /** Seção "Processo": moldura que se desenha e encolhe durante a rolagem (ScrollEngine). */
 export function Process() {
   return (
-    <section className="frame" id="frame" aria-label="Processo">
+    <section className="frame" id="frame" aria-label="Processo" data-cur="inv">
       <div className="stick">
         <svg id="fsvg" preserveAspectRatio="none" aria-hidden="true">
           <rect id="frect" />

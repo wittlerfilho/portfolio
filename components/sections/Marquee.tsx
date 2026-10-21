@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
+import { Reveal } from "@/components/effects/Reveal";
 import { marqueeText } from "@/lib/site";
 
 const LOOP_SECONDS = 38; // duração de uma volta completa em velocidade base
@@ -101,10 +102,24 @@ export function Marquee() {
     };
   }, []);
 
-  const copies = Array.from({ length: COPIES }, (_, i) => <span key={i}>{marqueeText}</span>);
+  /* mesmo texto, só com o travessão em destaque: a largura de cada cópia não muda, então o loop segue sem emenda */
+  const parts = marqueeText.split("—");
+  const copies = Array.from({ length: COPIES }, (_, i) => (
+    <span key={i}>
+      {parts.map((t, k) => (
+        <Fragment key={k}>
+          {t}
+          {k < parts.length - 1 ? <i className="mq-d">—</i> : null}
+        </Fragment>
+      ))}
+    </span>
+  ));
 
   return (
     <div className="marq" ref={root} aria-hidden="true">
+      {/* linhas fora do trilho em movimento: ficam estáveis e se desenham na entrada (topo primeiro) */}
+      <Reveal kind="hr" />
+      <Reveal kind="hr" className="b" delay={2} />
       <div id="mq" ref={track}>
         <div className="mq-set" ref={setA}>
           {copies}

@@ -3,8 +3,10 @@ import { PageProvider } from "@/components/effects/PageProvider";
 import { Loader } from "@/components/effects/Loader";
 import { SmoothScroll } from "@/components/effects/SmoothScroll";
 import { ScrollEngine } from "@/components/effects/ScrollEngine";
+import { Cursor } from "@/components/effects/Cursor";
 import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
+import { Statement } from "@/components/sections/Statement";
 import { Works } from "@/components/sections/Works";
 import { Process } from "@/components/sections/Process";
 import { Services } from "@/components/sections/Services";
@@ -25,6 +27,7 @@ export default function Home() {
       <main id="conteudo">
         <Hero />
         <Marquee />
+        <Statement />
         <Works />
         <Process />
         <div className="stack">
@@ -33,6 +36,7 @@ export default function Home() {
         </div>
       </main>
 
+      <Cursor />
       <SmoothScroll />
       <ScrollEngine />
     </PageProvider>
