@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 /** Bloco final: chamada para o WhatsApp, gravura do anjo e rodapé. */
 export function Contact() {
   return (
-    <section className="end" id="end">
+    <section className="end" id="end" data-cur="inv">
       <div className="top">
         <div className="fcta">
           <Reveal className="mono">[ Disponível para novos projetos ]</Reveal>

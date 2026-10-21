@@ -15,9 +15,10 @@ type ItemProps = {
   onFocusItem: (index: number, el: HTMLElement) => void;
   onHide: () => void;
   onTap: (index: number, el: HTMLElement) => void;
+  last: boolean;
 };
 
-function ProjectItem({ index, title, tag, text, active, onEnter, onFocusItem, onHide, onTap }: ItemProps) {
+function ProjectItem({ index, title, tag, text, active, onEnter, onFocusItem, onHide, onTap, last }: ItemProps) {
   const { text: shown, run } = useScramble(title);
   const num = String(index + 1).padStart(2, "0");
 
@@ -41,12 +42,14 @@ function ProjectItem({ index, title, tag, text, active, onEnter, onFocusItem, on
         run();
       }}
     >
+      <Reveal kind="hr" />
       <span className="mono">{num}</span>
       <div>
         <h3 aria-label={title}>{shown}</h3>
         <p>{text}</p>
       </div>
       <span className="mono">[ {tag} ] ↗</span>
+      {last ? <Reveal kind="hr" className="b" delay={1} /> : null}
     </Reveal>
   );
 }
@@ -130,7 +133,7 @@ export function Works() {
     <>
       <section className="works" id="works">
         <Reveal className="mono">[ Selected works / 2026 ]</Reveal>
-        <Reveal as="h2" className="rough" delay={1}>
+        <Reveal as="h2" className="rough ink" data-ink="" delay={1}>
           Projetos <em>[ 04 ]</em>
         </Reveal>
         <div id="list" onMouseLeave={() => setActiveBoth(-1)}>
@@ -146,6 +149,7 @@ export function Works() {
               onFocusItem={onFocusItem}
               onHide={() => setActiveBoth(-1)}
               onTap={onTap}
+              last={i === projects.length - 1}
             />
           ))}
         </div>

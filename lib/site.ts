@@ -21,6 +21,11 @@ export const navLinks = [
   { href: "#end", num: "03", label: "Contato" },
 ] as const;
 
+export const statement = {
+  label: "Abordagem",
+  text: "Um site não precisa parecer todos os outros. Eu desenho, escrevo e programo cada página do zero, com tipografia, ritmo e movimento pensados para a sua marca.",
+} as const;
+
 export const projects = [
   {
     title: "MAISON ÉLAN",

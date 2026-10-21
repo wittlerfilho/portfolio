@@ -6,7 +6,7 @@ export function Services() {
   return (
     <section className="serv" id="serv">
       <Reveal className="mono">[ Services ]</Reveal>
-      <Reveal as="h2" className="rough" delay={1}>
+      <Reveal as="h2" className="rough ink" data-ink="" delay={1}>
         O que entrego
       </Reveal>
       {services.map((s) => (

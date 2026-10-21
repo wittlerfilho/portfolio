@@ -3,6 +3,28 @@
 import { useEffect } from "react";
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+const smooth = (v: number) => v * v * (3 - 2 * v);
+
+/* Linha do hero: recolhe para a esquerda durante o primeiro meio viewport de rolagem. */
+const HERO_LINE_SPAN = 0.5;
+/* Títulos com data-ink: a cor começa quando o topo do título está a 90% da altura da janela e termina a 50%. */
+const INK_START = 0.9;
+const INK_END = 0.5;
+const INK_MAX = 114; // % do --rv (CSS) em que o título está totalmente colorido
+
+/* Declaração com data-fill: cada letra passa de apagada → azul-marinho (borda de avanço) → tinta.
+   O preenchimento começa quando o topo do bloco está a 85% da janela e termina quando o fim chega a 40%. */
+const FILL_START = 0.85;
+const FILL_END = 0.4;
+const FILL_SOFT = 12; // largura da borda suave, em letras
+const FILL_STEPS = 24; // passos de cor por letra (evita reescrever o estilo a cada subpixel)
+type Rgba = [number, number, number, number];
+const FILL_DIM: Rgba = [12, 12, 12, 0.22];
+const FILL_NAVY: Rgba = [20, 38, 107, 1]; // mesmo valor de --acc
+const FILL_INK: Rgba = [12, 12, 12, 1]; // mesmo valor de --ink
+const mixRgba = (a: Rgba, b: Rgba, t: number) =>
+  `rgba(${Math.round(a[0] + (b[0] - a[0]) * t)},${Math.round(a[1] + (b[1] - a[1]) * t)},${Math.round(a[2] + (b[2] - a[2]) * t)},${(a[3] + (b[3] - a[3]) * t).toFixed(3)})`;
+const fillColor = (c: number) => (c < 0.5 ? mixRgba(FILL_DIM, FILL_NAVY, c * 2) : mixRgba(FILL_NAVY, FILL_INK, c * 2 - 1));
 
 /**
  * Parallax e transições entre seções durante a rolagem.
@@ -30,8 +52,17 @@ export function ScrollEngine() {
     const barf = byId("barf");
     const hcp = document.querySelector<HTMLElement>(".hcopy");
     const hct = document.querySelector<HTMLElement>(".hfoot .cta");
+    const hf = document.querySelector<HTMLElement>(".hfoot");
+    const inks = Array.from(document.querySelectorAll<HTMLElement>("[data-ink]"));
+    const inkTop = inks.map(() => 0);
+    const inkLast = inks.map(() => NaN);
+    let hlLast = NaN;
+    const fills = Array.from(document.querySelectorAll<HTMLElement>("[data-fill]")).map((el) => {
+      const chars = Array.from(el.querySelectorAll<HTMLElement>(".fc"));
+      return { el, chars, last: chars.map(() => -1) };
+    });
 
-    if (!ttl || !fr || !fre || !ft || !en || !sv || !ed || !aim || !afr || !wk || !hi || !barf || !hcp || !hct) {
+    if (!ttl || !fr || !fre || !ft || !en || !sv || !ed || !aim || !afr || !wk || !hi || !barf || !hcp || !hct || !hf) {
       return;
     }
 
@@ -42,6 +73,11 @@ export function ScrollEngine() {
       const s = window.scrollY;
       const vh = window.innerHeight;
       sy += (s - sy) * lerp;
+
+      /* leituras de layout dos títulos antes de qualquer escrita deste quadro */
+      for (let i = 0; i < inks.length; i++) inkTop[i] = inks[i].getBoundingClientRect().top;
+
+      const fillRect = reduced ? [] : fills.map((f) => f.el.getBoundingClientRect());
 
       ttl.style.transform = `translate3d(0,${sy * 0.28}px,0)`;
       const dh = document.documentElement.scrollHeight - vh;
@@ -79,6 +115,42 @@ export function ScrollEngine() {
       aim.style.transform = `translate3d(0,${(1 - rr) * 30}px,0)`;
       (afr as unknown as SVGElement).style.strokeDashoffset = String(1 - clamp01((q - 0.15) / 0.6));
 
+      /* linha do hero: a ponta direita recua para a esquerda (scaleX com origem à esquerda, via --hl no CSS) */
+      const hl = reduced ? 1 : 1 - smooth(clamp01(s / (vh * HERO_LINE_SPAN)));
+      if (hl !== hlLast) {
+        hlLast = hl;
+        hf.style.setProperty("--hl", hl.toFixed(4));
+      }
+
+      /* cor dos títulos revelada de cima para baixo; movimento reduzido mantém o estado final do CSS */
+      if (!reduced) {
+        for (let i = 0; i < inks.length; i++) {
+          const t = clamp01((vh * INK_START - inkTop[i]) / (vh * (INK_START - INK_END)));
+          const rv = Math.round(t * INK_MAX * 10) / 10;
+          if (rv !== inkLast[i]) {
+            inkLast[i] = rv;
+            inks[i].style.setProperty("--rv", `${rv}%`);
+          }
+        }
+      }
+
+      /* declaração: a cor avança letra a letra com a rolagem (e recua ao subir); movimento reduzido mantém o estado final do CSS */
+      for (let i = 0; i < fillRect.length; i++) {
+        const { chars, last } = fills[i];
+        const r = fillRect[i];
+        const from = vh * FILL_START;
+        const to = vh * FILL_END;
+        const pr = clamp01((from - r.top) / (from - to + r.height));
+        const front = pr * (chars.length + FILL_SOFT);
+        for (let k = 0; k < chars.length; k++) {
+          const q = Math.round(clamp01((front - k) / FILL_SOFT) * FILL_STEPS);
+          if (q !== last[k]) {
+            last[k] = q;
+            chars[k].style.color = fillColor(q / FILL_STEPS);
+          }
+        }
+      }
+
       /* hero some ao rolar; projetos entram deslizando */
       const ph = reduced ? 0 : clamp01(s / (vh * 0.9));
       const wq = reduced ? 0 : clamp01((vh - rc.top) / (vh * 0.9));
@@ -110,6 +182,9 @@ export function ScrollEngine() {
       window.removeEventListener("scroll", kick);
       window.removeEventListener("resize", kick);
       ro.disconnect();
+      hf.style.removeProperty("--hl");
+      inks.forEach((el) => el.style.removeProperty("--rv"));
+      fills.forEach((f) => f.chars.forEach((c) => c.style.removeProperty("color")));
     };
   }, []);
 
